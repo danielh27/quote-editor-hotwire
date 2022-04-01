@@ -1,6 +1,10 @@
 require 'application_system_test_case'
 
 class QuotesTest < ApplicationSystemTestCase
+  setup do
+    @quote = quotes(:first)
+  end
+
   test 'Creating a new quote' do
     # When whe visit the Quotes#index page
     # we expect to see a h1 title with the text 'Quotes'
@@ -20,5 +24,11 @@ class QuotesTest < ApplicationSystemTestCase
     click_on 'Create quote'
     assert_selector 'h1', text: 'Quotes'
     assert_text 'Testing name quote'
+  end
+
+  test 'Showing a quote' do
+    visit quotes_path
+    click_link @quote.name
+    assert_selector 'h1', text: @quote.name
   end
 end
