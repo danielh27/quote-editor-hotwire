@@ -22,6 +22,7 @@ class QuotesTest < ApplicationSystemTestCase
     # and to see the new quote added to the list
     fill_in 'Name', with: 'Testing name quote'
     click_on 'Create quote'
+
     assert_selector 'h1', text: 'Quotes'
     assert_text 'Testing name quote'
   end
@@ -30,5 +31,19 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     click_link @quote.name
     assert_selector 'h1', text: @quote.name
+  end
+
+  test 'Updating a quote' do
+    visit quotes_path
+    assert_selector 'h1', text: 'Quotes'
+
+    click_link 'Edit', match: :first
+    assert_selector 'h1', text: 'Edit quote'
+
+    fill_in 'Name', with: 'Updated first quote'
+    click_on 'Update quote'
+
+    assert_selector 'h1', text: 'Quotes'
+    assert_text 'Updated first quote', match: :first
   end
 end
