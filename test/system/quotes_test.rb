@@ -13,8 +13,8 @@ class QuotesTest < ApplicationSystemTestCase
 
     # When we click on the 'New Quote' button
     # we expect to land on a page with the title 'New Quote'
-    click_on 'New Quote'
-    assert_selector 'h1', text: 'New Quote'
+    click_on 'New quote'
+    assert_selector 'h1', text: 'New quote'
 
     # When we fill in the name input with 'Testing name quote'
     # and we click on the 'Create quote' button
@@ -44,6 +44,14 @@ class QuotesTest < ApplicationSystemTestCase
     click_on 'Update quote'
 
     assert_selector 'h1', text: 'Quotes'
-    assert_text 'Updated first quote', match: :first
+    assert_text 'Updated first quote'
+  end
+
+  test 'Destroying a quote' do
+    visit quotes_path
+    assert_text @quote.name
+
+    click_on 'Delete', match: :first
+    assert_no_text @quote.name
   end
 end
