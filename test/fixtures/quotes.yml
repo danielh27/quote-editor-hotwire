@@ -1,8 +1,11 @@
 first:
+  company: AMD
   name: First Quote
 
 second:
+  company: AMD
   name: Second Quote
 
 third:
+  company: AMD
   name: Third Quote
