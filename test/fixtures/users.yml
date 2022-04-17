@@ -1,0 +1,11 @@
+accountant:
+  email: accountant@amd.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+manager:
+  email: manager@amd.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+eavesdropper:
+  email: eavesdropper@intel.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
