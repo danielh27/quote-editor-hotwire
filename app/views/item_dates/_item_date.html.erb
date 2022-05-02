@@ -1,0 +1,22 @@
+<div class="item-date">
+  <div class="item-date__header">
+    <h2 class="item-date__title">
+      <%= l(item_date.date, format: :long) %>
+    </h2>
+
+    <%# Polymorphic routes %>
+
+    <div class="item-date__actions">
+      <%= button_to "Delete",
+        [quote, item_date],
+        method: :delete, 
+        class: "btn btn--light" %>
+      
+      <%= link_to "Edit",
+        [:edit, quote, item_date],
+        class: "btn btn--ligth" %>
+
+    </div>
+
+  </div>
+</div>

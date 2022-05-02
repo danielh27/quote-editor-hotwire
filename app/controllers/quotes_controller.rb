@@ -37,6 +37,7 @@ class QuotesController < ApplicationController
   end
 
   def show
+    @item_dates = @quote.item_dates.ordered
   end
 
   def destroy
