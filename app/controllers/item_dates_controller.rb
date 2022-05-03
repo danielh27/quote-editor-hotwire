@@ -6,9 +6,9 @@ class ItemDatesController < ApplicationController
   end
 
   def create
-    item_date = @quote.item_dates.build(item_date_params)
+    @item_date = @quote.item_dates.build(item_date_params)
 
-    if item_date.save
+    if @item_date.save
       redirect_to @quote, notice: "Date was successfully created"
     else
       render :new, status: :unprocessable_entity

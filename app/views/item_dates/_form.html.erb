@@ -1,9 +1,5 @@
 <%= simple_form_for [quote, item_date], html: { class: "form item-date" } do |f| %>
-  <% if item_date.errors.any? %>
-    <div class="error-message">
-      <%= item_date.errors.full_messages.to_sentence.capitalize %>
-    </div>    
-  <% end %>
+  <%= form_error_notification(item_date) %>
 
   <%= f.input :date, html5: true, input_html: { autofocus: true } %>
   <%= link_to "Cancel", quote, class: "btn btn--light" %>
