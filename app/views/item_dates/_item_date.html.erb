@@ -9,7 +9,8 @@
     <div class="item-date__actions">
       <%= button_to "Delete",
         [quote, item_date],
-        method: :delete, 
+        method: :delete,
+        form: { data: { turbo_confirm: "Are you sure?" }}, 
         class: "btn btn--light" %>
       
       <%= link_to "Edit",
