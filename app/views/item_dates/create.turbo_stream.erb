@@ -1,0 +1,7 @@
+<%= turbo_stream.update "new_item_date", "" %>
+
+<%= turbo_stream.update "item_dates" do %>
+  <%= render @quote.item_dates.ordered, quote: @quote, item_date: @item_date %>
+<% end %>
+
+<%= render_turbo_stream_flash_messages %>

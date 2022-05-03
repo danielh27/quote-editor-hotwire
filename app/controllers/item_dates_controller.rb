@@ -10,7 +10,10 @@ class ItemDatesController < ApplicationController
     @item_date = @quote.item_dates.build(item_date_params)
 
     if @item_date.save
-      redirect_to @quote, notice: "Date was successfully created"
+      respond_to do |format|
+        format.html { redirect_to @quote, notice: "Date was successfully created" }
+        format.turbo_stream { flash.now[:notice] = "Date was successfully created" }
+      end
     else
       render :new, status: :unprocessable_entity
     end
